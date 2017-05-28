@@ -12,4 +12,4 @@ Complated ML Type
 
 Supported platform
 ---
-All platform what supported the C++11.
+All platform that supports the C++11.
