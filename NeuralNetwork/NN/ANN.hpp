@@ -29,6 +29,10 @@
 #define endl                 "\n"
 #endif
 
+#ifndef uint
+#define uint unsigned int
+#endif
+
 #ifdef RANDOM_WEIGHT
 #define init_weight()  ((rand() % 100) / 150.0)
 #else

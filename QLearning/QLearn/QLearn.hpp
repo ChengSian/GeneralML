@@ -25,6 +25,10 @@
 #define endl                 "\n"
 #endif
 
+#ifndef uint
+#define uint unsigned int
+#endif
+
 typedef float LearnType;
 typedef LearnType QLearnRewardFunc(uint, uint);
 
