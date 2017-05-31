@@ -121,5 +121,7 @@ int main(int argc, const char * argv[]) {
     }
     cout << endl;
     test.printNet();
+    ANNType*** w = test.ExportWeights();
+    test.LoadWeights(w);
     return 0;
 }

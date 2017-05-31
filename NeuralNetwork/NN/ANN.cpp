@@ -148,3 +148,27 @@ ANNType* ANN::Predict(ANNType *input) {
     }
     return this->outputs;
 }
+
+ANNType*** ANN::ExportWeights() {
+    ANNType*** weights = new ANNType**[this->size];
+    for (uint i = 0; i < this->size-1; i++) {
+        weights[i] = new ANNType*[this->neural[i].size];
+        for (uint j=0; j < this->neural[i].size; j++) {
+            weights[i][j] = new ANNType[this->neural[i].nodes[j].size];
+            for (uint k=0; k < this->neural[i].nodes[j].size; k++) {
+                weights[i][j][k] = this->neural[i].nodes[j].weights[k];
+            }
+        }
+    }
+    return weights;
+}
+
+void ANN::LoadWeights(ANNType*** weights) {
+    for (uint i = 0; i < this->size-1; i++) {
+        for (uint j=0; j < this->neural[i].size; j++) {
+            for (uint k=0; k < this->neural[i].nodes[j].size; k++) {
+                this->neural[i].nodes[j].weights[k] = weights[i][j][k];
+            }
+        }
+    }
+}

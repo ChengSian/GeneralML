@@ -34,7 +34,7 @@
 #endif
 
 #ifdef RANDOM_WEIGHT
-#define init_weight()  ((rand() % 100) / 150.0)
+#define init_weight()  ((rand() % 100) / 60.0 - 1.0)
 #else
 #define init_weight()  0.01
 #endif
@@ -60,8 +60,8 @@ public:
     ~ANN();
     void Train(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda=0);
     ANNType* Predict(ANNType *input);
-//    ANNType** ExportWeights();
-//    void LoadWeights(ANNType** weights);
+    ANNType*** ExportWeights();
+    void LoadWeights(ANNType*** weights);
     uint NetSize();
     void printNet();
     ANNType Error(ANNClassType *output);
