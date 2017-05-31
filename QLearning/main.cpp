@@ -28,7 +28,10 @@ QLearn<9, 9>::RewardType reward = {
     {-13, -11,  -9,  -7,  -5,  -3,   3,   5,   3}, // S = 7
     {-15, -13, -11,  -9,  -7,  -5,  -3,   3,   5}  // S = 8
 };
-QLearn<9, 9> qlearn(&reward);
+
+QLearn<9, 9> qlearn([](uint a , uint b)->LearnType {
+    return (a-4)*(b-4);
+});
 using namespace std;
 
 uint getPos(uint status, uint action) {
@@ -64,6 +67,8 @@ int main(int argc, const char * argv[]) {
             cout << "Status: " << prev_stat+1 << endl;
             cout << "Action: " << act+1 << endl;
             prev_stat = stat;
+        } else if (s == "q") {
+            return 0;
         }
     }
     return 0;

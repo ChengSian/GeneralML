@@ -87,7 +87,7 @@ void myAnswer(ANNType* history, ANNClassType* ans, uint history_num) {
 
 int main(int argc, const char * argv[]) {
     long before = getMemoryUsage();
-    ANN test(11,  5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5 );
+    ANN test(3,  5, 6, 5);
     ANNType history[5];
     ANNClassType train[5];
     cout << "Mem: " << getMemoryUsage()-before << " B" << endl;
