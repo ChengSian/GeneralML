@@ -58,7 +58,7 @@ class ANN{
 public:
     ANN(uint neural_size, ...);
     ~ANN();
-    void Train(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda=0);
+    void Training(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda=0);
     ANNType* Predict(ANNType *input);
     ANNType*** ExportWeights();
     void LoadWeights(ANNType*** weights);

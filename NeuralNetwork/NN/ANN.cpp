@@ -80,7 +80,7 @@ void ANN::printNet() {
     }
 }
 
-void ANN::Train(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda) {
+void ANN::Training(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda) {
     this->Predict(input);
     for (uint j=0; j < this->output; j++) {
         this->neural[this->size-2].nodes[j].error = ((ANNType)target[j] - this->outputs[j]) * this->outputs[j] * (1.0 - this->outputs[j]);
