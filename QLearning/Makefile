@@ -10,9 +10,9 @@ DEPS     = $(patsubst %,$(IDIR)/%,$(_DEPS))
 _OBJ     = Memory.o RewardLambda.o RewardTable.o main.o
 OBJ      = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-all: test
+all: test.out
 
-test: test.out
+test:
 	./test.out
 
 $(ODIR)/%.o: %.c $(DEPS)
@@ -21,7 +21,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 test.out: $(OBJ)
 	$(CXX) -o $@ $^ $(CXXFLAGS)
 
-.PHONY: clean
+.PHONY: clean test
 
 clean:
 	rm -f $(ODIR)/*.o *~ $(INCDIR)/*~ test.out
