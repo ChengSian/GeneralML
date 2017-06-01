@@ -39,6 +39,8 @@
 #define init_weight()  0.01
 #endif
 
+#define sigmonid(z)    (1.0/(1.0+exp(-z)))
+
 typedef float ANNType;
 typedef uint  ANNClassType;
 
@@ -58,16 +60,16 @@ class ANN{
 public:
     ANN(uint neural_size, ...);
     ~ANN();
-    void Training(ANNType *input, ANNClassType *target, ANNType learnRate, ANNType lambda=0);
+    void InitWeights();
+    void Training(ANNType *input, ANNClassType *target, ANNType learnRate, uint epochs=1);
     ANNType* Predict(ANNType *input);
     ANNType*** ExportWeights();
     void LoadWeights(ANNType*** weights);
     uint NetSize();
     void printNet();
     ANNType Error(ANNClassType *output);
-    ANNClassType* Classify();
+    ANNClassType* Classify(ANNType boundary=0.5);
 private:
-    ANNType sigmonid(ANNType z);
     ANN_Layer* neural;
     uint size;
     uint input;
