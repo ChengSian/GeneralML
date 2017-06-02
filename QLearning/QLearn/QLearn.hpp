@@ -103,7 +103,7 @@ public:
         return S*A;
     }
     QType& getMatrix(){
-        return &(this->Q);
+        return this->Q;
     }
     void PrintMatrix(){
         debug("Q :");
