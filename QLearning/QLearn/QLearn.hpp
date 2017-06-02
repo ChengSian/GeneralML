@@ -102,7 +102,7 @@ public:
     uint MatrixSize() {
         return S*A;
     }
-    QType* getMatrix(){
+    QType& getMatrix(){
         return &(this->Q);
     }
     void PrintMatrix(){
